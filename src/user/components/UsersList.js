@@ -17,7 +17,6 @@ const UsersList = props =>{
           <tr>
             <th>Nom</th>
             <th>Prenom</th>
-
             <th>Role</th>
             <th>Action</th>
           </tr>
@@ -29,7 +28,7 @@ const UsersList = props =>{
             nom={user.nom}
             />)
         )}
-    </td>
+        </td>
     <td className="users-list" style={{textAlignVertical: "center",textAlign: "center",}}>
             {props.items.map(user => (
             <UserItem 
@@ -44,8 +43,10 @@ const UsersList = props =>{
             />)
         )}
     </td>
-    <td><Button variant="light">Modifier</Button>
-        <Button variant="light">Supprimer</Button></td>
+    <td className="users-list" style={{textAlignVertical: "center",textAlign: "center",}}>
+        <Button variant="outline-info">Modifier</Button>
+        <Button variant="outline-danger">Supprimer</Button>
+    </td>
     
     </tbody>
     </Table>)};

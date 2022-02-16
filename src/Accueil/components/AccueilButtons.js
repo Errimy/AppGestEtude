@@ -58,7 +58,7 @@ const AccueilButtons = (props) => {
                 chaque classe.
               </Card.Text>
               
-              <Link to="">
+              <Link to="/Classe">
                 <Button variant="success">Voir classes</Button>
               </Link>
             </Card.Body>

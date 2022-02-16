@@ -1,7 +1,7 @@
 import React from "react";
 import "./AccueilButtons.css";
 import { Button, Card, CardGroup } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const AccueilButtons = (props) => {
   return (
@@ -18,7 +18,9 @@ const AccueilButtons = (props) => {
               <Card.Text>
                 Clique ici pour voir la liste des emploi de temps.
               </Card.Text>
-              <Button variant="success">Voir emploi</Button>
+              <Link to="">
+                <Button variant="success">Voir emploi</Button>
+              </Link>
             </Card.Body>
           </Card>
         </div>
@@ -33,7 +35,9 @@ const AccueilButtons = (props) => {
               <Card.Text>
                 Clique ici pour voir les examens a venir et les notes.
               </Card.Text>
-              <Button variant="success">Voir examens</Button>
+              <Link to="">
+                <Button variant="success">Voir examens</Button>
+              </Link>
             </Card.Body>
           </Card>
         </div>
@@ -53,7 +57,10 @@ const AccueilButtons = (props) => {
                 Clique ici pour voir les classes et la liste des étudiants de
                 chaque classe.
               </Card.Text>
-              <Button variant="success">Voir classes</Button>
+              
+              <Link to="">
+                <Button variant="success">Voir classes</Button>
+              </Link>
             </Card.Body>
           </Card>
         </div>
@@ -69,7 +76,9 @@ const AccueilButtons = (props) => {
                 Menu de création et modification des comptes, option pour les
                 admins seulement.
               </Card.Text>
-              <Button variant="success">Gestion des comptes</Button>
+              <Link to="/Users">
+                <Button variant="success">Gestion des comptes</Button>
+              </Link>
             </Card.Body>
           </Card>
         </div>

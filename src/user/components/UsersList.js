@@ -5,6 +5,7 @@ import { Table } from "react-bootstrap";
 
 // use this in classe to show students of said classe
 const UsersList = props =>{
+    console.log(props.items);
     if(props.items.length === 0 )
     {
         return (
@@ -27,6 +28,7 @@ const UsersList = props =>{
         <tbody>
             {props.items.map(user => (
             <UserItem 
+                key = {user._id}
                 id = {user._id}
                 nom={user.nom}
                 prenom = {user.prenom}

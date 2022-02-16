@@ -35,7 +35,7 @@ const AccueilButtons = (props) => {
               <Card.Text>
                 Clique ici pour voir les examens a venir et les notes.
               </Card.Text>
-              <Link to="">
+              <Link to="/Examens">
                 <Button variant="success">Voir examens</Button>
               </Link>
             </Card.Body>

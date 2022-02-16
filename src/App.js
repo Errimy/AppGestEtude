@@ -11,6 +11,7 @@ import AccueilButtons from "./Accueil/components/AccueilButtons";
 import Login from "./Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Mainnav from "./shared/components/Mainnav";
+import Examens from "./Examen/pages/Examens";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/Login" exact>
             <Login />
+          </Route>
+          <Route path="/Examens" exact>
+            <Examens />
           </Route>
           <Redirect to="/" />
         </Switch>

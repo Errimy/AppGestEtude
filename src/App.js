@@ -11,8 +11,8 @@ import AccueilButtons from "./Accueil/components/AccueilButtons";
 import Login from "./Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Mainnav from "./shared/components/Mainnav";
-import Examens from "./Examen/pages/Examens";
-import Emplois from "./Emploi/pages/Emplois";
+import Examens from "./examen/pages/Examens";
+import Emplois from "./emploi/pages/Emplois";
 
 function App() {
   return (

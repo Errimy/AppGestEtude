@@ -27,13 +27,14 @@ const UsersList = props =>{
         </thead>
         <tbody>
             {props.items.map(user => (
-            <UserItem 
-                key = {user._id}
-                id = {user._id}
-                nom={user.nom}
-                prenom = {user.prenom}
-                role = {user.role}
-            />)
+                <UserItem 
+                    key = {user._id}
+                    id = {user._id}
+                    nom={user.nom}
+                    prenom = {user.prenom}
+                    role = {user.role}
+                />
+            )
         )}
     </tbody>
     </Table>)};

@@ -14,7 +14,9 @@ import { useHttpClient } from '../../shared/hooks/http-hooks';
 const UpdateUser = () => {
   const { isLoading, sendRequest} = useHttpClient();
   const [loadedUser, setLoadedUser] = useState();
-  const userId = useParams().id;
+  const userId = useParams().userId;
+
+  console.log("User id : " + userId);
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -47,7 +49,8 @@ const UpdateUser = () => {
   );
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUser = async () => 
+    {
       try {
         const responseData = await sendRequest(
           `http://localhost:5000/api/users/${userId}`

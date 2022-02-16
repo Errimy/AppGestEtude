@@ -17,36 +17,19 @@ const UsersList = props =>{
           <tr>
             <th>Nom</th>
             <th>Prenom</th>
-
             <th>Role</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-        <td className="users-list" style={{textAlignVertical: "center",textAlign: "center",}}>
             {props.items.map(user => (
             <UserItem 
-            nom={user.nom}
+                key = {user.id}
+                nom={user.nom}
+                prenom = {user.prenom}
+                role = {user.role}
             />)
         )}
-    </td>
-    <td className="users-list" style={{textAlignVertical: "center",textAlign: "center",}}>
-            {props.items.map(user => (
-            <UserItem 
-            prenom={user.prenom}
-            />)
-        )}
-    </td>
-    <td className="users-list" style={{textAlignVertical: "center",textAlign: "center",}}>
-            {props.items.map(user => (
-            <UserItem 
-            role={user.role}
-            />)
-        )}
-    </td>
-    <td><Button variant="light">Modifier</Button>
-        <Button variant="light">Supprimer</Button></td>
-    
     </tbody>
     </Table>)};
 

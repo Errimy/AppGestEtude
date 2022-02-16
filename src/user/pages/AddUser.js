@@ -9,7 +9,8 @@ import {
     VALIDATOR_REQUIRE,
     VALIDATOR_MINLENGTH
   } from '../../shared/util/validators';
-
+import { Card } from 'react-bootstrap';
+import './AddUser.css';
 const AddUser = () => {
   const { isLoading, sendRequest } = useHttpClient();
   const [formState, inputHandler] = useForm(
@@ -66,67 +67,98 @@ const AddUser = () => {
 
   return (
     <React.Fragment>
+      <div className="parent">
+      <Card className="main-card">
+        <Card.Header>
+          Ajout d'un nouveau utilisateur
+        </Card.Header>
+        <Card.Body>
+          <form className="place-form" onSubmit={placeSubmitHandler}>
+          {isLoading}
 
-      <form className="place-form" onSubmit={placeSubmitHandler}>
-        {isLoading}
-        <Input
-          id="nom"
-          element="input"
-          type="text"
-          label="Nom"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Entrer le nom"
-          onInput={inputHandler}
-        />
-        <Input
-          id="prenom"
-          element="input"
-          type="text"
-          label="Prenom"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Entrer le nom"
-          onInput={inputHandler}
-        />
-        <Input
-            element="input"
-            id="email"
-            type="email"
-            label="E-Mail"
-            validators={[VALIDATOR_EMAIL()]}
-            errorText="Adresse email"
-            onInput={inputHandler}
-          />
-        <Input
-            element="input"
-            id="mdp"
-            type="password"
-            label="Mot de passe"
-            validators={[VALIDATOR_MINLENGTH(6)]}
-            errorText="Entrer votre mot de passe"
-            onInput={inputHandler}
-          />
-        <Input
-          id="classe_user"
-          element="input"
-          type="text"
-          label="Classe"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Entrer la classe"
-          onInput={inputHandler}
-        />
-        <Input
-          id="role"
-          element="input"
-          type="text"
-          label="Role"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Entrer le role de cette utilisateur."
-          onInput={inputHandler}
-        />
+          <div className="nom-prenom-group">
+            <Card className="card-input" style={{width:'20em'}}>
+              <Input
+                id="nom"
+                element="input"
+                type="text"
+                label="Nom"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Entrer le nom"
+                onInput={inputHandler}
+              />
+            </Card>
+            <Card className="card-input" style={{width:'20em'}}>
+              <Input
+                id="prenom"
+                element="input"
+                type="text"
+                label="Prenom"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Entrer le nom"
+                onInput={inputHandler}
+              />
+            </Card>
+          </div>
+          <Card className="card-input">
+            <Input
+                element="input"
+                id="email"
+                type="email"
+                label="E-Mail"
+                validators={[VALIDATOR_EMAIL()]}
+                errorText="Adresse email"
+                onInput={inputHandler}
+              />
+          </Card>
+          
+          <Card className="card-input">
+            <Input
+                element="input"
+                id="mdp"
+                type="password"
+                label="Mot de passe"
+                validators={[VALIDATOR_MINLENGTH(6)]}
+                errorText="Entrer votre mot de passe"
+                onInput={inputHandler}
+              />
+          </Card>
+          
+
+          <div className="classe-role-group">
+            <Card className="card-input" style={{width:'20em'}}>
+              <Input
+                id="classe_user"
+                element="input"
+                type="text"
+                label="Classe"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Entrer la classe"
+                onInput={inputHandler}
+              />
+            </Card>
+            
+            <Card className="card-input" style={{width:'20em'}}>
+              <Input
+                id="role"
+                element="input"
+                type="text"
+                label="Role"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Entrer le role de cette utilisateur."
+                onInput={inputHandler}
+              />
+            </Card>
+          </div>
+          
+        </form>
+        </Card.Body>
         <Button type="submit" disabled={!formState.isValid}>
-          Ajouter l'Utilisateur
-        </Button>
-      </form>
+            Ajouter l'Utilisateur
+          </Button>
+      </Card>
+      
+    </div>
     </React.Fragment>
   );
 };

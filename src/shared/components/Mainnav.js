@@ -15,7 +15,7 @@ const Mainnav = props => {
     <Navigation>
     <Nav className="navbar navbar-dark bg-success">
         <NavLink to ='/'>
-            <p className="header btn btn-success">Accueil</p>
+            <Button variant="outline-light">Accueil</Button>
         </NavLink>
        
         <Button variant="danger">Se déconnecter</Button>

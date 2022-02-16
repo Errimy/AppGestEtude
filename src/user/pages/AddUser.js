@@ -1,16 +1,17 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import Input from '../../shared/Input'
-import Button from '../../shared/Button'
+import Input from '../../shared/components/Input'
+import Button from '../../shared/components/Button'
 import { useForm } from '../../shared/hooks/form-hook';
-import { useHttpClient } from '../../shared/hooks/http-hook';
+import { useHttpClient } from '../../shared/hooks/http-hooks';
 import {
+    VALIDATOR_EMAIL,
     VALIDATOR_REQUIRE,
     VALIDATOR_MINLENGTH
   } from '../../shared/util/validators';
 
 const AddUser = () => {
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const { isLoading, sendRequest } = useHttpClient();
   const [formState, inputHandler] = useForm(
     {
       nom: {
@@ -69,28 +70,57 @@ const AddUser = () => {
       <form className="place-form" onSubmit={placeSubmitHandler}>
         {isLoading}
         <Input
-          id="title"
+          id="nom"
           element="input"
           type="text"
-          label="Title"
+          label="Nom"
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrer le nom"
           onInput={inputHandler}
         />
         <Input
-          id="description"
-          element="textarea"
-          label="Description"
-          validators={[VALIDATOR_MINLENGTH(5)]}
-          errorText="Please enter a valid description (at least 5 characters)."
+          id="prenom"
+          element="input"
+          type="text"
+          label="Prenom"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Entrer le nom"
           onInput={inputHandler}
         />
         <Input
-          id="address"
+            element="input"
+            id="email"
+            type="email"
+            label="E-Mail"
+            validators={[VALIDATOR_EMAIL()]}
+            errorText="Adresse email"
+            onInput={inputHandler}
+          />
+        <Input
+            element="input"
+            id="mdp"
+            type="password"
+            label="Mot de passe"
+            validators={[VALIDATOR_MINLENGTH(6)]}
+            errorText="Entrer votre mot de passe"
+            onInput={inputHandler}
+          />
+        <Input
+          id="classe_user"
           element="input"
-          label="Address"
+          type="text"
+          label="Classe"
           validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid address."
+          errorText="Entrer la classe"
+          onInput={inputHandler}
+        />
+        <Input
+          id="role"
+          element="input"
+          type="text"
+          label="Role"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Entrer le role de cette utilisateur."
           onInput={inputHandler}
         />
         <Button type="submit" disabled={!formState.isValid}>

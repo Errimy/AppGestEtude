@@ -6,6 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import Users from "./user/pages/Users2";
+import AddUser from "./user/pages/AddUser";
 import Classe from "./classe/pages/Classe";
 import AccueilButtons from "./Accueil/components/AccueilButtons";
 import Login from "./Login/Login";
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/Classe" exact>
             <Classe />
+          </Route>
+          <Route path="/AddUser" exact>
+            <AddUser />
           </Route>
           <Route path="/Users" exact>
             <Users />

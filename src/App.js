@@ -5,7 +5,7 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
-import Users from "./user/pages/Users2";
+import Users from "./user/pages/Users";
 import AddUser from "./user/pages/AddUser";
 import UpdateUser from "./user/pages/UpdateUser";
 import Classe from "./classe/pages/Classe";

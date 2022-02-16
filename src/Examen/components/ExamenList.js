@@ -27,6 +27,7 @@ const ExamenList = props =>
             <tbody>
                 {props.items.map(examen => (
                     <ExamenItem
+                        key={examen.id}
                         matiere={examen.matiere}
                         nom_etudiant={examen.nom_etudiant}
                         note={examen.note}

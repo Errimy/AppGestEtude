@@ -7,7 +7,9 @@ const ExamenItem = props => {
             <td>{props.matiere}</td>
             <td>{props.nom_etudiant}</td>
             <td>{props.note}</td>
-            <td>{props.date}</td>
+            <td>
+                {props.date.toString()}
+            </td>
             <td>
                 <Button variant="outline-info">Modifier</Button>
                 <Button variant="outline-danger">Supprimer</Button>

@@ -21,7 +21,6 @@ const UsersList = props =>{
             <th>Nom</th>
             <th>Prenom</th>
             <th>Role</th>
-            <th>Id</th>
             <th>Action</th>
           </tr>
         </thead>

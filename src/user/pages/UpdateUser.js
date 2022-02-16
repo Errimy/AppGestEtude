@@ -121,6 +121,7 @@ const UpdateUser = () => {
           element="input"
           type="text"
           label="Nom"
+          initialValue={loadedUser.nom}
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrer le nom"
           onInput={inputHandler}
@@ -132,6 +133,7 @@ const UpdateUser = () => {
           element="input"
           type="text"
           label="Prenom"
+          initialValue={loadedUser.prenom}
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrer le nom"
           onInput={inputHandler}
@@ -142,6 +144,7 @@ const UpdateUser = () => {
             id="email"
             type="email"
             label="E-Mail"
+            initialValue={loadedUser.email}
             validators={[VALIDATOR_EMAIL()]}
             errorText="Adresse email"
             onInput={inputHandler}
@@ -152,6 +155,7 @@ const UpdateUser = () => {
             id="mdp"
             type="password"
             label="Mot de passe"
+            initialValue={loadedUser.password}
             validators={[VALIDATOR_MINLENGTH(6)]}
             errorText="Entrer votre mot de passe"
             onInput={inputHandler}
@@ -162,6 +166,7 @@ const UpdateUser = () => {
           element="input"
           type="text"
           label="Classe"
+          initialValue={loadedUser.classe_user}
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrer la classe"
           onInput={inputHandler}
@@ -172,6 +177,7 @@ const UpdateUser = () => {
           element="input"
           type="text"
           label="Role"
+          initialValue={loadedUser.role}
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrer le role de cette utilisateur."
           onInput={inputHandler}

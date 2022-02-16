@@ -29,7 +29,6 @@ const UserItem = props => {
             <td>{props.nom}</td>
             <td>{props.prenom}</td>
             <td>{props.role}</td>
-            <td>{props.id}</td>
 
             <td>
                 <Link to={`/users/${props.id}`}><Button variant="outline-info">Modifier</Button></Link>

@@ -15,7 +15,8 @@ const Examens = () => {
           'http://localhost:5000/api/examens'
         );
 
-        setLoadedClasses(responseData.classes);
+        setLoadedClasses(responseData.examens);
+        console.log(loadedClasses);
       } catch (err) {}
     };
     fetchClasses();
@@ -30,6 +31,8 @@ const Examens = () => {
       <div className='my-4'style={{textAlignVertical: "center",textAlign: "center",}} >
         <Button variant="success">Ajouter un Examen</Button>
       </div>
+
+
       {!isLoading && loadedClasses && <ExamenList items={loadedClasses} />}
     </React.Fragment>
   );

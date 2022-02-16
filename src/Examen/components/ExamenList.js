@@ -2,11 +2,14 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import ExamenItem from "./ExamenItem";
 // use this in classe to show students of said classe
-const ExamenList = props =>{
+const ExamenList = props =>
+{
+    console.log(props);
+
     if(props.items.length === 0 ){
         return (
             <div className='center'>
-                <h2>Il n'existe pas encore de classe pour le moments.</h2>
+                <h2>Il n'existe pas encore d'examen pour le moments.</h2>
             </div>
         )
     }

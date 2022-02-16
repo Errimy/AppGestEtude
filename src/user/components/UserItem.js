@@ -1,17 +1,18 @@
 import  React from "react";
 import './UserItem.css';
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 const UserItem = props => {
     return(
-        <Table >
-                    <tbody>
-                        <td>{props.nom}</td>
-                        <td>{props.prenom}</td>
-                        <td>{props.role}</td>
-                    </tbody>
-                    </Table>
-
+        <tr>
+            <td>{props.nom}</td>
+            <td>{props.prenom}</td>
+            <td>{props.role}</td>
+            <td>
+                <Button variant="outline-info">Modifier</Button>
+                <Button variant="outline-danger">Supprimer</Button>
+            </td>
+        </tr>
     )
 }
 

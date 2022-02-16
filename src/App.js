@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import Users from "./user/pages/Users2";
-import Classe from "./classe/pages/Classe2";
+import Classe from "./classe/pages/Classe";
 import AccueilButtons from "./Accueil/components/AccueilButtons";
 import Login from "./Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";

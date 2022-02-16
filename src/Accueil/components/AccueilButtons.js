@@ -18,7 +18,7 @@ const AccueilButtons = (props) => {
               <Card.Text>
                 Clique ici pour voir la liste des emploi de temps.
               </Card.Text>
-              <Link to="">
+              <Link to="/Emplois">
                 <Button variant="success">Voir emploi</Button>
               </Link>
             </Card.Body>

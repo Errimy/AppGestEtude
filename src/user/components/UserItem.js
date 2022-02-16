@@ -1,16 +1,33 @@
 import  React from "react";
 import './UserItem.css';
-import { Button } from "react-bootstrap";
+import { Button} from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+import { useHttpClient } from '../../shared/hooks/http-hooks';
 
 const UserItem = props => {
+    const { sendRequest } = useHttpClient();
+    const confirmDeleteHandler = async () => {
+    try {
+      await sendRequest(
+        `http://localhost:5000/api/Users/${props.id}`,
+        'DELETE'
+      );
+      props.onDelete(props.id);
+    } catch (err) {}
+  };
+
+
     return(
         <tr>
             <td>{props.nom}</td>
             <td>{props.prenom}</td>
             <td>{props.role}</td>
+            <td>{props._id}</td>
+
             <td>
-                <Button variant="outline-info">Modifier</Button>
-                <Button variant="outline-danger">Supprimer</Button>
+                <Link to={`/users/${props._id}`}><Button variant="outline-info">Modifier</Button></Link>
+                <Button variant="outline-danger" onClick={confirmDeleteHandler}>Supprimer</Button>
             </td>
         </tr>
     )

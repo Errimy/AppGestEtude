@@ -20,13 +20,14 @@ const UsersList = props =>{
             <th>Nom</th>
             <th>Prenom</th>
             <th>Role</th>
+            <th>Id</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
             {props.items.map(user => (
             <UserItem 
-                key = {user.id}
+                id = {user._id}
                 nom={user.nom}
                 prenom = {user.prenom}
                 role = {user.role}

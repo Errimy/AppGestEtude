@@ -28,7 +28,7 @@ const Examens = () => {
         </div>
       )}
       <div className='my-4'style={{textAlignVertical: "center",textAlign: "center",}} >
-        <Button variant="success">Ajouter une Classe</Button>
+        <Button variant="success">Ajouter un Examen</Button>
       </div>
       {!isLoading && loadedClasses && <ExamenList items={loadedClasses} />}
     </React.Fragment>

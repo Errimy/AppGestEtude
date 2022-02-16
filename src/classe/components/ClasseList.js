@@ -12,25 +12,21 @@ const ClasseList = props =>{
     }
     return (
         <Table striped hover>
-        <thead style={{textAlignVertical: "center",textAlign: "center",}}>
-          <tr>
-            <th>Nom de Classe</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-        <td className="classe-list" style={{textAlignVertical: "center",textAlign: "center",}}>
-            {props.items.map(classe => (
-            <ClasseItem 
-            nom_classe={classe.nom_classe}
-            />)
-        )}
-    </td>
-
-    <td className="classe-list" style={{textAlignVertical: "center",textAlign: "center",}}><Button variant="light">Modifier</Button>
-        <Button variant="light">Supprimer</Button></td>
-    
-    </tbody>
-    </Table>)};
+            <thead style={{textAlignVertical: "center",textAlign: "center",}}>
+                <tr>
+                    <th>Nom de Classe</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {props.items.map(classe => (
+                    <ClasseItem
+                        key={classe.id}
+                        nom_classe={classe.nom_classe}
+                    />)
+                )}
+            </tbody>
+        </Table>
+    )};
 
 export default ClasseList;

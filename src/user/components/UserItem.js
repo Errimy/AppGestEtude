@@ -15,5 +15,4 @@ const UserItem = props => {
         </tr>
     )
 }
-
 export default UserItem;

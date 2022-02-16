@@ -2,9 +2,11 @@ import React from "react";
 import './UsersList.css';
 import UserItem from './UserItem';
 import { Table,Button } from "react-bootstrap";
+
 // use this in classe to show students of said classe
 const UsersList = props =>{
-    if(props.items.length === 0 ){
+    if(props.items.length === 0 )
+    {
         return (
             <div className='center'>
                 <h2>Il n'existe pas d'étudiants dans cette classe.</h2>

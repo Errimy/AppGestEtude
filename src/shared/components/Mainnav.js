@@ -10,8 +10,6 @@ const Mainnav = props => {
 
     const location = useLocation();
     let isPageLogin = location.pathname === '/Login';
-    console.log(location.pathname + " isPAGElOGIN : " + isPageLogin);
-
 
     return isPageLogin ?<Nav className="navbar navbar-dark bg-success"></Nav> : 
     <Navigation>

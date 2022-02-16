@@ -1,7 +1,7 @@
 import React from "react";
 import './UsersList.css';
 import UserItem from './UserItem';
-import { Table,Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 // use this in classe to show students of said classe
 const UsersList = props =>{

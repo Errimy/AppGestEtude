@@ -1,7 +1,7 @@
 import React from "react";
 import "./AccueilButtons.css";
 import { Button, Card, CardGroup } from "react-bootstrap";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AccueilButtons = (props) => {
   return (

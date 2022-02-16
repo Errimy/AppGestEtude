@@ -1,6 +1,6 @@
 import React from "react";
 import ClasseItem from './ClasseItem';
-import { Table,Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 // use this in classe to show students of said classe
 const ClasseList = props =>{
     if(props.items.length === 0 ){

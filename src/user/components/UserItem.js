@@ -1,6 +1,6 @@
 import  React from "react";
 import './UserItem.css';
-import { Table, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const UserItem = props => {
     return(

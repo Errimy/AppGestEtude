@@ -1,5 +1,5 @@
 import  React from "react";
-import { Table, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const ClasseItem = props => {
     return(

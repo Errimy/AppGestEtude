@@ -1,13 +1,12 @@
 import  React from "react";
-import './UserItem.css';
 import { Button } from "react-bootstrap";
 
-const UserItem = props => {
+const EmploiItem = props => {
     return(
         <tr>
-            <td>{props.nom}</td>
-            <td>{props.prenom}</td>
-            <td>{props.role}</td>
+            <td>{props.matiere}</td>
+            <td>{props.jour}</td>
+            <td>{props.heure}</td>
             <td>
                 <Button variant="outline-info">Modifier</Button>
                 <Button variant="outline-danger">Supprimer</Button>
@@ -15,4 +14,5 @@ const UserItem = props => {
         </tr>
     )
 }
-export default UserItem;
+
+export default EmploiItem;

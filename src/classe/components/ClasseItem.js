@@ -1,14 +1,15 @@
 import  React from "react";
-import { Table } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const ClasseItem = props => {
     return(
-        <Table >
-                    <tbody>
-                        <td>{props.nom_classe}</td>
-                    </tbody>
-                    </Table>
-
+        <tr>
+            <td>{props.nom_classe}</td>
+            <td>
+                <Button variant="outline-info">Modifier</Button>
+                <Button variant="outline-danger">Supprimer</Button>
+            </td>
+        </tr>
     )
 }
 

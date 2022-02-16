@@ -1,7 +1,7 @@
 import React from "react";
 import "./AccueilButtons.css";
 import { Button, Card, CardGroup } from "react-bootstrap";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AccueilButtons = (props) => {
   return (
@@ -18,7 +18,7 @@ const AccueilButtons = (props) => {
               <Card.Text>
                 Clique ici pour voir la liste des emploi de temps.
               </Card.Text>
-              <Link to="">
+              <Link to="/Emplois">
                 <Button variant="success">Voir emploi</Button>
               </Link>
             </Card.Body>
@@ -35,7 +35,7 @@ const AccueilButtons = (props) => {
               <Card.Text>
                 Clique ici pour voir les examens a venir et les notes.
               </Card.Text>
-              <Link to="">
+              <Link to="/Examens">
                 <Button variant="success">Voir examens</Button>
               </Link>
             </Card.Body>

@@ -9,9 +9,7 @@ import { useLocation } from 'react-router-dom'
 const Mainnav = props => {
 
     const location = useLocation();
-    let isPageLogin = location.pathname == '/Login';
-    console.log(location.pathname + " isPAGElOGIN : " + isPageLogin);
-
+    let isPageLogin = location.pathname === '/Login';
 
     return isPageLogin ?<Nav className="navbar navbar-dark bg-success"></Nav> : 
     <Navigation>

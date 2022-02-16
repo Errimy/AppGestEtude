@@ -1,13 +1,15 @@
 import  React from "react";
-import './UserItem.css';
 import { Button } from "react-bootstrap";
 
-const UserItem = props => {
+const ExamenItem = props => {
     return(
         <tr>
-            <td>{props.nom}</td>
-            <td>{props.prenom}</td>
-            <td>{props.role}</td>
+            <td>{props.matiere}</td>
+            <td>{props.nom_etudiant}</td>
+            <td>{props.note}</td>
+            <td>
+                {props.date.toString()}
+            </td>
             <td>
                 <Button variant="outline-info">Modifier</Button>
                 <Button variant="outline-danger">Supprimer</Button>
@@ -15,4 +17,5 @@ const UserItem = props => {
         </tr>
     )
 }
-export default UserItem;
+
+export default ExamenItem;

@@ -67,7 +67,7 @@ const AddUser = () => {
   return (
     <React.Fragment>
 
-      <form className="place-form" onSubmit={placeSubmitHandler}>
+      <form className="place-form " style={{margin: "auto",}} onSubmit={placeSubmitHandler}>
         {isLoading}
         <Input
           id="nom"
@@ -78,6 +78,8 @@ const AddUser = () => {
           errorText="Entrer le nom"
           onInput={inputHandler}
         />
+        <br></br>
+        <br></br>
         <Input
           id="prenom"
           element="input"
@@ -87,6 +89,7 @@ const AddUser = () => {
           errorText="Entrer le nom"
           onInput={inputHandler}
         />
+        <br></br>
         <Input
             element="input"
             id="email"
@@ -96,6 +99,7 @@ const AddUser = () => {
             errorText="Adresse email"
             onInput={inputHandler}
           />
+          <br></br>
         <Input
             element="input"
             id="mdp"
@@ -105,6 +109,7 @@ const AddUser = () => {
             errorText="Entrer votre mot de passe"
             onInput={inputHandler}
           />
+          <br></br>
         <Input
           id="classe_user"
           element="input"
@@ -114,6 +119,7 @@ const AddUser = () => {
           errorText="Entrer la classe"
           onInput={inputHandler}
         />
+        <br></br>
         <Input
           id="role"
           element="input"
@@ -123,6 +129,9 @@ const AddUser = () => {
           errorText="Entrer le role de cette utilisateur."
           onInput={inputHandler}
         />
+        <br></br>
+        <br></br>
+        <br></br>
         <Button type="submit" disabled={!formState.isValid}>
           Ajouter l'Utilisateur
         </Button>

@@ -7,13 +7,14 @@ import {
 } from "react-router-dom";
 import Users from "./user/pages/Users2";
 import AddUser from "./user/pages/AddUser";
+import UpdateUser from "./user/pages/UpdateUser";
 import Classe from "./classe/pages/Classe";
 import AccueilButtons from "./Accueil/components/AccueilButtons";
 import Login from "./Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Mainnav from "./shared/components/Mainnav";
-import Examens from "./Examen/pages/Examens";
-import Emplois from "./Emploi/pages/Emplois";
+import Examens from "./examen/pages/Examens";
+import Emplois from "./emploi/pages/Emplois";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/AddUser" exact>
             <AddUser />
+          </Route>
+          <Route path="/Users/:userId" exact>
+            <UpdateUser />
           </Route>
           <Route path="/Users" exact>
             <Users />

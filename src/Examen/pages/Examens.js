@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHttpClient } from '../../shared/hooks/http-hooks';
 import { Button } from 'react-bootstrap';
 import ExamenList from '../components/ExamenList';
+import {Link} from 'react-router-dom';
 
 const Examens = () => {
   const { isLoading, sendRequest } = useHttpClient();
@@ -29,7 +30,9 @@ const Examens = () => {
         </div>
       )}
       <div className='my-4'style={{textAlignVertical: "center",textAlign: "center",}} >
+        <Link to={'./AddExamen'}>
         <Button variant="success">Ajouter un Examen</Button>
+        </Link>
       </div>
 
 

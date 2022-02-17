@@ -6,6 +6,8 @@ import {
   Switch,
 } from "react-router-dom";
 import Users from "./user/pages/Users";
+import ClasseUser from "./user/pages/ClasseUser";
+
 import AddUser from "./user/pages/AddUser";
 import AddClasse from "./classe/pages/AddClasse";
 import AddEmploi from "./emploi/pages/AddEmploi";
@@ -66,6 +68,9 @@ function App() {
           </Route>
           <Route path="/Users" exact>
             <Users />
+          </Route>
+          <Route path="/Users/classe/:classeId" exact>
+            <ClasseUser />
           </Route>
           <Route path="/Login" exact>
             <Login />

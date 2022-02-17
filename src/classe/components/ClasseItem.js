@@ -22,7 +22,7 @@ const ClasseItem = props => {
     };
     return(
         <tr>
-            <td>{props.nom_classe}</td>
+            <td><Link to ={`./Users/classe/${props.id}`}>{props.nom_classe}</Link></td>
             <td>
                 <Link to={`/classes/${props.id}`}><Button variant="outline-info">Modifier</Button></Link>
                 <Button variant="outline-danger" onClick={confirmDeleteHandler}>Supprimer</Button>

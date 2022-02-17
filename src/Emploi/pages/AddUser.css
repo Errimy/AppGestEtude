@@ -1,0 +1,19 @@
+.main-card {
+    width: 50%;
+    margin: auto;
+}
+.card-input{
+    height : 7em;
+    width: 44.7em;
+    margin : auto;
+}
+.nom-prenom-group{
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.classe-role-group {
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

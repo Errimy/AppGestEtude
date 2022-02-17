@@ -24,7 +24,8 @@ const EmploiList = props =>
             <tbody>
                 {props.items.map(emploi => (
                     <EmploiItem
-                        key={emploi.id}
+                        key={emploi._id}
+                        id={emploi._id}
                         matiere={emploi.matiere}
                         jour={emploi.jour}
                         heure={emploi.heure}

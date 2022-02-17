@@ -115,7 +115,7 @@ const UpdateUser = () => {
         }
       );
     } catch (err) {}
-    history.push('/');
+    history.push('/Users');
   };
 
 
@@ -213,11 +213,11 @@ const UpdateUser = () => {
         <br></br>
         <br></br>
         <br></br>
-        <Link to="/Users">
-          <Button type="submit">
+
+        <Button type="submit">
             Modifier l'utilisateur
-          </Button>
-        </Link>
+        </Button>
+
         </form>
         
         )}

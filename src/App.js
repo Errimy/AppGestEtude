@@ -8,8 +8,11 @@ import {
 import Users from "./user/pages/Users";
 import AddUser from "./user/pages/AddUser";
 import AddClasse from "./classe/pages/AddClasse";
+import AddEmploi from "./emploi/pages/AddEmploi";
+
 import UpdateUser from "./user/pages/UpdateUser";
 import UpdateClasse from "./classe/pages/UpdateClasse";
+import UpdateEmploi from "./emploi/pages/UpdateEmploi";
 
 import Classe from "./classe/pages/Classe";
 import AccueilButtons from "./Accueil/components/AccueilButtons";
@@ -41,11 +44,17 @@ function App() {
           <Route path="/AddClasse" exact>
             <AddClasse />
           </Route>
+          <Route path="/AddEmploi" exact>
+            <AddEmploi />
+          </Route>
           <Route path="/Users/:userId" exact>
             <UpdateUser />
           </Route>
           <Route path="/Classes/:classeId" exact>
             <UpdateClasse />
+          </Route>
+          <Route path="/Emplois/:emploiId" exact>
+            <UpdateEmploi />
           </Route>
           <Route path="/Users" exact>
             <Users />

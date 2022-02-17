@@ -12,6 +12,8 @@ import {
 import { Card } from 'react-bootstrap';
 import './AddUser.css';
 const AddUser = () => {
+
+  const auth = useContext(AuthContext);
   const { isLoading, sendRequest } = useHttpClient();
   const [formState, inputHandler] = useForm(
     {

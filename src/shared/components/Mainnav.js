@@ -3,10 +3,18 @@ import './Mainnav.css';
 import Navigation from './Navigation';
 import { Button,Nav } from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
-import { useLocation } from 'react-router-dom'
+import { useLocation , useHistory } from 'react-router-dom'
 
 
-const Mainnav = props => {
+const Mainnav = props => 
+{
+    const history = useHistory();
+    const disconnectUser = () => {
+        console.log('---- You have been kicked');
+        localStorage.removeItem('user');
+        history.push('/Login');
+    }
+
 
     const location = useLocation();
     let isPageLogin = location.pathname === '/Login';
@@ -17,9 +25,7 @@ const Mainnav = props => {
         <NavLink to ='/'>
             <Button variant="outline-light">Accueil</Button>
         </NavLink>
-        <NavLink to ='/login'>
-            <Button variant="danger">Se déconnecter</Button>
-        </NavLink>
+        <Button onClick={disconnectUser} variant="danger">Se déconnecter</Button>
     </Nav>
     </Navigation>
 }

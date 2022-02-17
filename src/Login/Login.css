@@ -5,3 +5,19 @@
 .titre {
     margin-bottom: 50px;
 }
+
+
+.main-card {
+    width : 50em;
+    margin : auto;
+}
+.content {
+    display : flex;
+    justify-content: space-between;
+}
+
+.child-card {
+    width : 20em;
+    height : 5em;
+    display : inline-block;
+}

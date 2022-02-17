@@ -1,6 +1,6 @@
 
 import "./Login.css";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Card } from "react-bootstrap";
 import React, { useState, useContext } from 'react';
 import Input from '../shared/components/Input';
 import {useHistory} from 'react-router-dom';
@@ -15,6 +15,7 @@ import { AuthContext } from '../shared/context/auth-context';
 
 
 const Login = () => {
+
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
@@ -35,7 +36,6 @@ const Login = () => {
 
 
   const authSubmitHandler = async event => {
-    console.log("it works");
     event.preventDefault();
       try {
         const responseData = await sendRequest(
@@ -49,7 +49,8 @@ const Login = () => {
             'Content-Type': 'application/json'
           }
         );
-        auth.login(responseData.user.id);
+        console.log(responseData);
+        auth.login(responseData.user);
 
         history.push('/Accueil');
       } catch (err) {
@@ -58,45 +59,53 @@ const Login = () => {
   };
 
   return (
-    <div className="text-center">
-      {isLoading}
-        <h1 className="text-center titre" >Page de connexion</h1>
-
+    <Card className="main-card">
       <form onSubmit={authSubmitHandler}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Input
-            element="input"
-            id="email"
-            type="email"
-            label="Adresse Email"
-            validators={[VALIDATOR_EMAIL()]}
-            errorText="Enter une adresse email valide."
-            onInput={inputHandler}
-          />
-        </Form.Group>
+      {isLoading}
+        <Card.Header as="h2" className="text-center titre">Page de connexion</Card.Header>
+        <Card.Body>
+        <div className="content">
+        <Card className="child-card">  
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Input
+              element="input"
+              id="email"
+              type="email"
+              label="Adresse Email"
+              validators={[VALIDATOR_EMAIL()]}
+              errorText="Enter une adresse email valide."
+              onInput={inputHandler}
+            />
+          </Form.Group>
+        </Card>
+        <Card className="child-card">
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Input
+              className="mb-3"
+              element="input"
+              id="mdp"
+              type="password"
+              label="Mot de passe"
+              validators={[VALIDATOR_MINLENGTH(6)]}
+              errorText="Entrer un mot de passe valide."
+              onInput={inputHandler}
+            />
+          </Form.Group>
+        </Card>
+        </div>
+        
+        </Card.Body>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Input
-            className="mb-3"
-            element="input"
-            id="mdp"
-            type="password"
-            label="Mot de passe"
-            validators={[VALIDATOR_MINLENGTH(6)]}
-            errorText="Entrer un mot de passe valide."
-            onInput={inputHandler}
-          />
-        </Form.Group>
-        <Button variant="success" type="submit">
-          Connexion
-        </Button>
-        <br />
-        <br />
-        <Form.Label className="text-muted">
-          Problème de connexion ? Merci de contacter l'administration.
-        </Form.Label>
-      </form>
-    </div>
+        <Card.Footer>
+          <Button variant="success" type="submit">
+              Connexion
+            </Button>
+            <Form.Label className="text-muted">
+              Problème de connexion ? Merci de contacter l'administration.
+            </Form.Label>
+        </Card.Footer>
+        </form>
+    </Card>
   );
 };
 

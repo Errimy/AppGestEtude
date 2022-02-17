@@ -1,25 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Mainnav.css';
 import Navigation from './Navigation';
 import { Button,Nav } from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
 import { useLocation , useHistory } from 'react-router-dom'
+import { AuthContext } from '../context/auth-context';
 
 
 const Mainnav = props => 
 {
+    const auth = useContext(AuthContext);
+    console.log(auth);
     const history = useHistory();
+
     const disconnectUser = () => {
         console.log('---- You have been kicked');
-        localStorage.removeItem('user');
+        auth.logout();
+
         history.push('/Login');
     }
 
-
-    const location = useLocation();
-    let isPageLogin = location.pathname === '/Login';
-
-    return isPageLogin ?<Nav className="navbar navbar-dark bg-success"></Nav> : 
+    return !auth.isLoggedIn ?
+    <Nav className="navbar navbar-dark bg-success"></Nav> : 
+    
     <Navigation>
     <Nav className="navbar navbar-dark bg-success">
         <NavLink to ='/'>

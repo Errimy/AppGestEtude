@@ -29,7 +29,7 @@ import { AuthContext } from "./shared/context/auth-context";
 
 function App()
 {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState({role : ''});
     const [isLoggedIn, setIsLoggedIn] = useState(false);
   
     const login = useCallback(user => {
@@ -46,6 +46,7 @@ function App()
 
     if(isLoggedIn)
     {
+      console.log(user)
       if(user.role === 'admin')
       {
         routes = <Switch>
@@ -119,7 +120,14 @@ function App()
       }
     }else
     {
-        routes = <Switch><Redirect to="/Login"/> </Switch>
+        routes = <Switch>
+                    <Route path="/Login">
+                      <Login />
+                    </Route>
+                    <Route path="/">
+                      <Login />
+                    </Route>
+                </Switch>
     }
 
 

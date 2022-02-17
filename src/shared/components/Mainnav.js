@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import './Mainnav.css';
 import Navigation from './Navigation';
 import { Button,Nav } from "react-bootstrap";
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useLocation , useHistory } from 'react-router-dom'
 import { AuthContext } from '../context/auth-context';
 
@@ -25,10 +25,10 @@ const Mainnav = props =>
     
     <Navigation>
     <Nav className="navbar navbar-dark bg-success">
-        <NavLink to ='/'>
+        <Link to ='/'>
             <Button variant="outline-light">Accueil</Button>
-        </NavLink>
-        <Button onClick={disconnectUser} variant="danger">Se déconnecter</Button>
+        </Link>
+        <Button onClick={() => disconnectUser()} variant="danger">Se déconnecter</Button>
     </Nav>
     </Navigation>
 }

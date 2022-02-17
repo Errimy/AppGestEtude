@@ -103,6 +103,9 @@ function App()
       }else
       {
         routes = <Switch>
+                    <Route path="/" exact>
+                      <AccueilButtons />
+                    </Route>
                     <Route path="/Accueil" exact>
                       <AccueilButtons />
                     </Route>

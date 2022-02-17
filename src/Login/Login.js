@@ -34,6 +34,8 @@ const Login = () => {
   );
   const history = useHistory();
 
+  if(auth.isLoggedIn)
+    history.push('/');
 
   const authSubmitHandler = async event => {
     event.preventDefault();

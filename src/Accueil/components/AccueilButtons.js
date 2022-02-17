@@ -1,9 +1,12 @@
-import React from "react";
+import React , {useContext} from "react";
 import "./AccueilButtons.css";
 import { Button, Card, CardGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {AuthContext} from '../../shared/context/auth-context';
 
 const AccueilButtons = (props) => {
+  const auth = useContext(AuthContext);
+
   return (
     <div>
       <CardGroup className="cards1">
@@ -64,6 +67,7 @@ const AccueilButtons = (props) => {
             </Card.Body>
           </Card>
         </div>
+        {auth.user.role=="admin" &&
         <div className="compte">
           <Card
             border="success"
@@ -81,7 +85,7 @@ const AccueilButtons = (props) => {
               </Link>
             </Card.Body>
           </Card>
-        </div>
+        </div>}
       </CardGroup>
     </div>
   );

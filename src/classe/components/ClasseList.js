@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import ClasseItem from './ClasseItem';
 import { Table } from "react-bootstrap";
+import { AuthContext } from "../../shared/context/auth-context";
 // use this in classe to show students of said classe
 const ClasseList = props =>{
+
+    const auth = useContext(AuthContext);
+
     if(props.items.length === 0 ){
         return (
             <div className='center'>
@@ -15,7 +19,7 @@ const ClasseList = props =>{
             <thead style={{textAlignVertical: "center",textAlign: "center",}}>
                 <tr>
                     <th>Nom de Classe</th>
-                    <th>Action</th>
+                    {auth.user.role=='admin' && <th>Action</th>}
                 </tr>
             </thead>
             <tbody>

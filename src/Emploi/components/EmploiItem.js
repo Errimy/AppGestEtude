@@ -1,11 +1,13 @@
-import  React from "react";
+import  React, { useContext } from "react";
 import { Button } from "react-bootstrap";
 import {Link} from 'react-router-dom';
+import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from '../../shared/hooks/http-hooks';
 
 
 const EmploiItem = props => {
     const { sendRequest } = useHttpClient();
+    const auth = useContext(AuthContext);
 
     const confirmDeleteHandler = async () => 
     {
@@ -26,10 +28,10 @@ const EmploiItem = props => {
             <td>{props.matiere}</td>
             <td>{props.jour}</td>
             <td>{props.heure}</td>
-            <td>
+            {auth.user.role=='admin' &&<td>
                 <Link to={`/emplois/${props.id}`}><Button variant="outline-info">Modifier</Button></Link>
                 <Button variant="outline-danger" onClick={confirmDeleteHandler}>Supprimer</Button>
-            </td>
+            </td>}
         </tr>
     )
 }

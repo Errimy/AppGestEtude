@@ -96,7 +96,7 @@ const Login = () => {
         
         </Card.Body>
 
-        <Card.Footer>
+        <Card.Footer style={{textAlign: 'center'}}>
           <Button variant="success" type="submit">
               Connexion
             </Button>

@@ -47,13 +47,13 @@ const Login = () => {
           }),
           {
             'Content-Type': 'application/json'
-          }
-        );
-        auth.login(responseData.user.id);
-        history.push('/Accueil');
-      } catch (err) {
-        console.log(err);
-      }
+            }
+          );
+          auth.login(responseData.user.id);
+          history.push('/Accueil');
+        } catch (err) {
+          console.log(err);
+        }
   };
 
   return (

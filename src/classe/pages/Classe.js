@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ClasseList from '../components/ClasseList';
 import { useHttpClient } from '../../shared/hooks/http-hooks';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 const Classes = () => {
   const { isLoading, sendRequest } = useHttpClient();
@@ -28,7 +29,10 @@ const Classes = () => {
         </div>
       )}
       <div className='my-4'style={{textAlignVertical: "center",textAlign: "center",}} >
-      <Button variant="success">Ajouter une Classe</Button></div>
+        <Link to="/AddClasse">
+        <Button variant="success">Ajouter une Classe</Button>
+        </Link>
+        </div>
       {!isLoading && loadedClasses && <ClasseList items={loadedClasses} />}
     </React.Fragment>
   );

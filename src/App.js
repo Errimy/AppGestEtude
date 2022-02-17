@@ -7,7 +7,10 @@ import {
 } from "react-router-dom";
 import Users from "./user/pages/Users";
 import AddUser from "./user/pages/AddUser";
+import AddClasse from "./classe/pages/AddClasse";
 import UpdateUser from "./user/pages/UpdateUser";
+import UpdateClasse from "./classe/pages/UpdateClasse";
+
 import Classe from "./classe/pages/Classe";
 import AccueilButtons from "./Accueil/components/AccueilButtons";
 import Login from "./Login/Login";
@@ -35,8 +38,14 @@ function App() {
           <Route path="/AddUser" exact>
             <AddUser />
           </Route>
+          <Route path="/AddClasse" exact>
+            <AddClasse />
+          </Route>
           <Route path="/Users/:userId" exact>
             <UpdateUser />
+          </Route>
+          <Route path="/Classes/:classeId" exact>
+            <UpdateClasse />
           </Route>
           <Route path="/Users" exact>
             <Users />

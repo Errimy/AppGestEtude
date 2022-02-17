@@ -45,7 +45,7 @@ const AddUser = () => {
 
   const history = useHistory();
 
-  const placeSubmitHandler = async event => {
+  const SubmitHandler = async event => {
     event.preventDefault();
     try {
       await sendRequest(
@@ -61,7 +61,7 @@ const AddUser = () => {
         }),
         { 'Content-Type': 'application/json' }
       );
-      history.push('/');
+      history.push('/users');
     } catch (err) {}
   };
 
@@ -73,7 +73,7 @@ const AddUser = () => {
           Ajout d'un nouveau utilisateur
         </Card.Header>
         <Card.Body>
-          <form className="place-form" onSubmit={placeSubmitHandler}>
+          <form className="place-form" onSubmit={SubmitHandler}>
           {isLoading}
 
           <div className="nom-prenom-group">
@@ -84,7 +84,7 @@ const AddUser = () => {
                 type="text"
                 label="Nom"
                 validators={[VALIDATOR_REQUIRE()]}
-                errorText="Entrer le nom"
+                errorText="Entrer un nom valide"
                 onInput={inputHandler}
               />
             </Card>
@@ -95,7 +95,7 @@ const AddUser = () => {
                 type="text"
                 label="Prenom"
                 validators={[VALIDATOR_REQUIRE()]}
-                errorText="Entrer le nom"
+                errorText="Entrer une prenom valide"
                 onInput={inputHandler}
               />
             </Card>
@@ -107,7 +107,7 @@ const AddUser = () => {
                 type="email"
                 label="E-Mail"
                 validators={[VALIDATOR_EMAIL()]}
-                errorText="Adresse email"
+                errorText="Adresse email pas valide"
                 onInput={inputHandler}
               />
           </Card>
@@ -119,7 +119,7 @@ const AddUser = () => {
                 type="password"
                 label="Mot de passe"
                 validators={[VALIDATOR_MINLENGTH(6)]}
-                errorText="Entrer votre mot de passe"
+                errorText="longueure de mot de passe minimum est 6 charactere."
                 onInput={inputHandler}
               />
           </Card>
@@ -133,7 +133,7 @@ const AddUser = () => {
                 type="text"
                 label="Classe"
                 validators={[VALIDATOR_REQUIRE()]}
-                errorText="Entrer la classe"
+                errorText="Entrer une classe valide"
                 onInput={inputHandler}
               />
             </Card>
@@ -150,12 +150,12 @@ const AddUser = () => {
               />
             </Card>
           </div>
+          <Button type="submit" disabled={!formState.isValid}>
+            Ajouter l'Utilisateur
+          </Button>
           
         </form>
         </Card.Body>
-        <Button type="submit" disabled={!formState.isValid}>
-            Ajouter l'Utilisateur
-          </Button>
       </Card>
       
     </div>

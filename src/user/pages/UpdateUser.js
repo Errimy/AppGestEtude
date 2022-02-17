@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory,Link } from 'react-router-dom';
 
 import Input from '../../shared/components/Input';
 import Button from '../../shared/components/Button';
@@ -10,6 +10,8 @@ import {
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
 import { useHttpClient } from '../../shared/hooks/http-hooks';
+import { Card } from 'react-bootstrap';
+import './AddUser.css';
 
 const UpdateUser = () => {
   const { isLoading, sendRequest} = useHttpClient();
@@ -91,21 +93,29 @@ const UpdateUser = () => {
     fetchUser();
   }, [sendRequest, userId, setFormData]);
 
+  const history = useHistory();
+
   const userUpdateSubmitHandler = async event => {
-    event.preventDefault();
+        console.log(formState.inputs.nom.value);
+        console.log();
     try {
       await sendRequest(
         `http://localhost:5000/api/users/${userId}`,
         'PATCH',
         JSON.stringify({
-          title: formState.inputs.title.value,
-          description: formState.inputs.description.value
+          nom: formState.inputs.nom.value,
+          prenom: formState.inputs.prenom.value,
+          email: formState.inputs.email.value,
+          mdp: formState.inputs.mdp.value,
+          classe_user: formState.inputs.classe_user.value,
+          role: formState.inputs.role.value
         }),
         {
           'Content-Type': 'application/json'
         }
       );
     } catch (err) {}
+    history.push('/');
   };
 
 
@@ -113,8 +123,14 @@ const UpdateUser = () => {
 
   return (
     <React.Fragment>
+      <div className="parent">
+      <Card className="main-card">
+        <Card.Header>
+          Modifier l'utilisateur:
+        </Card.Header>
+        <Card.Body>
 
-      {!isLoading && loadedUser && (
+        {!isLoading && loadedUser && (
         <form className="place-form" onSubmit={userUpdateSubmitHandler}>
         <Input
           id="nom"
@@ -123,10 +139,11 @@ const UpdateUser = () => {
           label="Nom"
           initialValue={loadedUser.nom}
           validators={[VALIDATOR_REQUIRE()]}
-          errorText="Entrer le nom"
+          errorText="Entrer un nom valide"
           onInput={inputHandler}
+          initialValid={true}
+
         />
-        <br></br>
         <br></br>
         <Input
           id="prenom"
@@ -135,8 +152,10 @@ const UpdateUser = () => {
           label="Prenom"
           initialValue={loadedUser.prenom}
           validators={[VALIDATOR_REQUIRE()]}
-          errorText="Entrer le nom"
+          errorText="Entrer un prenom valide"
           onInput={inputHandler}
+          initialValid={true}
+
         />
         <br></br>
         <Input
@@ -146,8 +165,10 @@ const UpdateUser = () => {
             label="E-Mail"
             initialValue={loadedUser.email}
             validators={[VALIDATOR_EMAIL()]}
-            errorText="Adresse email"
+            errorText="Adresse email pas valide"
             onInput={inputHandler}
+            initialValid={true}
+
           />
           <br></br>
         <Input
@@ -157,8 +178,10 @@ const UpdateUser = () => {
             label="Mot de passe"
             initialValue={loadedUser.password}
             validators={[VALIDATOR_MINLENGTH(6)]}
-            errorText="Entrer votre mot de passe"
+            errorText="mot de passe de longuere minimum doit etre 6."
             onInput={inputHandler}
+            initialValid={true}
+
           />
           <br></br>
         <Input
@@ -168,8 +191,10 @@ const UpdateUser = () => {
           label="Classe"
           initialValue={loadedUser.classe_user}
           validators={[VALIDATOR_REQUIRE()]}
-          errorText="Entrer la classe"
+          errorText="Entrer une classe valide"
           onInput={inputHandler}
+          initialValid={true}
+
         />
         <br></br>
         <Input
@@ -181,15 +206,26 @@ const UpdateUser = () => {
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrer le role de cette utilisateur."
           onInput={inputHandler}
+          initialValid={true}
+
         />
+        
         <br></br>
         <br></br>
         <br></br>
-          <Button type="submit" disabled={!formState.isValid}>
+        <Link to="/Users">
+          <Button type="submit">
             Modifier l'utilisateur
           </Button>
+        </Link>
         </form>
+        
         )}
+      </Card.Body>
+
+      </Card>
+      
+      </div>
     </React.Fragment>
   );
 };

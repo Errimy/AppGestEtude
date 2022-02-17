@@ -21,7 +21,8 @@ const ClasseList = props =>{
             <tbody>
                 {props.items.map(classe => (
                     <ClasseItem
-                        key={classe.id}
+                        key={classe._id}
+                        id={classe._id}
                         nom_classe={classe.nom_classe}
                     />)
                 )}
